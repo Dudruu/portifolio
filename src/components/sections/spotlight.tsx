@@ -18,8 +18,6 @@ export function HeroSpotlight({ children }: { children: React.ReactNode }) {
       const rect = section.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-
-      // Atualiza variáveis CSS diretamente no elemento (Zero re-renders no React)
       spotlight.style.setProperty("--x", `${x}px`);
       spotlight.style.setProperty("--y", `${y}px`);
       spotlight.style.setProperty("--opacity", "1");
@@ -43,7 +41,6 @@ export function HeroSpotlight({ children }: { children: React.ReactNode }) {
       ref={sectionRef}
       className="relative grid min-h-svh place-items-center overflow-hidden bg-background px-6 text-foreground"
     >
-      {/* Camada do Efeito Lanterna (Spotlight) */}
       <div
         ref={spotlightRef}
         aria-hidden
@@ -57,8 +54,6 @@ export function HeroSpotlight({ children }: { children: React.ReactNode }) {
           opacity: "var(--opacity, 0)",
         }}
       />
-
-      {/* Conteúdo (Texto e Imagem) - Mantém legibilidade 100% */}
       <div className="relative z-10">{children}</div>
     </section>
   );

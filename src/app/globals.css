@@ -112,4 +112,18 @@
   html {
     @apply font-sans;
   }
+
+  @keyframes scrollWheel {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(12px); /* Desce até o limite do padding interno */
+    }
+  }
+
+  .animate-scroll-wheel {
+    animation: scrollWheel 2s ease-in-out infinite;
+  }
 }

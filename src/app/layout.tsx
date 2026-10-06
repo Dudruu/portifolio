@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/layout/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bricolageSans = Bricolage_Grotesque({
+  variable: "--font-bricolage_grotesque-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const interSans = Inter({
+  variable: "--font-inter-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -21,9 +24,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${bricolageSans.variable}${interSans.variable}h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#011627]">{children}</body>
     </html>
   );
 }

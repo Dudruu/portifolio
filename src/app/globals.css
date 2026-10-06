@@ -101,6 +101,11 @@
   --color-highlight: var(--highlight);
   --color-highlight-foreground: var(--highlight-foreground);
 }
+@media (prefers-reduced-motion: no-preference) {
+  [data-fade] {
+    opacity: 0;
+  }
+}
 
 @layer base {
   * {

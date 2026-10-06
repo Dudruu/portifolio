@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/footer";
+import { SmoothScroll } from "@/components/motion/smooth-scroll";
 
 const bricolageSans = Bricolage_Grotesque({
   variable: "--font-bricolage_grotesque-sans",
@@ -26,7 +27,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${bricolageSans.variable}${interSans.variable}h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#011627]">{children}</body>
+      <SmoothScroll>
+        <body className="min-h-full flex flex-col bg-[#011627]">
+          <noscript>
+            <style>{`[data-fade]{opacity:1!important}`}</style>
+          </noscript>
+          {children}
+        </body>
+      </SmoothScroll>
     </html>
   );
 }

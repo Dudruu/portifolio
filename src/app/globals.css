@@ -92,6 +92,16 @@
   --ring: #0e7c73;
 }
 
+:root {
+  --highlight: #a9d6f5;
+  --highlight-foreground: #011627;
+}
+
+@theme inline {
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
